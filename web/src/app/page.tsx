@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { Badge } from "@/components/ui/badge";
+import Map from "@/components/map";
 
 export default function Home() {
   const account = useAccount();
@@ -27,8 +28,11 @@ export default function Home() {
           priority
         />
         <div className=" ">
-          <div className="text-3xl font-bold">some app</div>
-          <div className="text-lg ">this app does something</div>
+          <div className="text-3xl font-bold">Zkwarden</div>
+          <div className="text-lg ">
+            Farcaster tool uses zk proofs for user verifications on age,
+            location, and group constraints.
+          </div>
         </div>
       </div>
 
@@ -52,6 +56,11 @@ export default function Home() {
               )}
             </div>
           )}
+        </div>
+      </section>
+      <section className="lg:max-w-5xl lg:w-full mt-10">
+        <div className="ring-1 ring-zinc-700 rounded-xl p-8 w-full">
+          <Map />
         </div>
       </section>
     </main>
