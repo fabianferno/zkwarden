@@ -71,7 +71,7 @@ export default function Home() {
               </div>
 
               {account?.address && (
-                <div className="mt-5 flex justify-center items-between flex-col w-full">
+                <div className="mt-5 flex justify-center items-center flex-col w-full">
                   <h1>
                     Verify that you are authorized to be a part of this group.
                   </h1>
