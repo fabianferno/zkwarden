@@ -14,7 +14,7 @@ const center = { lat: 37.7749, lng: -122.4194 }; // Set initial center coordinat
 
 const mapContainerStyle = {
   width: "100%",
-  height: "30vh",
+  height: "40vh",
   border: "2px solid #ccc",
   borderRadius: "10px",
 };
@@ -76,7 +76,7 @@ export default function Home() {
                     <form className="p-2 border-zinc-800 border-t-[1px]">
                       <div className="space-y-12">
                         <div className="border-b border-gray-900/10 pb-3">
-                          <h2 className="text-base font-semibold leading-7 text-gray-900 dark:text-gray-200 mt-2">
+                          <h2 className="text-lg font-semibold leading-7 text-gray-900 dark:text-gray-200 mt-2">
                             1) Create a farcaster group
                           </h2>
                           <p className="mt-1 text-sm leading-6 text-gray-600 dark:text-zinc-400">
@@ -93,7 +93,7 @@ export default function Home() {
                                   type="text"
                                   disabled
                                   defaultValue={marker.lat.toFixed(6)}
-                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900"
+                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                                 />
                               </div>
                             </div>
@@ -107,7 +107,7 @@ export default function Home() {
                                   type="text"
                                   disabled
                                   defaultValue={marker.lng.toFixed(6)}
-                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900"
+                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                                 />
                               </div>
                             </div>
@@ -120,7 +120,7 @@ export default function Home() {
                                 <input
                                   defaultValue={50}
                                   type="number"
-                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900"
+                                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                                 />
                               </div>
                             </div>
@@ -133,7 +133,7 @@ export default function Home() {
                             <div className="mt-2">
                               <input
                                 type="text"
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                               />
                             </div>
                           </div>
@@ -169,7 +169,7 @@ export default function Home() {
                     </form>
 
                     <div className="mt-3">
-                      <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-200">
+                      <label className="block text-lg font-medium leading-6 text-gray-900 dark:text-gray-200">
                         2) Copy this NFT collection link and configure it in
                         your group
                       </label>
@@ -195,7 +195,7 @@ export default function Home() {
                     </div>
 
                     <div className="mt-3">
-                      <label className="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-200">
+                      <label className="block text-lg font-medium leading-6 text-gray-900 dark:text-gray-200">
                         3) Share this farcaster group invite link
                       </label>
                       <div className="mt-2 flex justify-center items-center">
