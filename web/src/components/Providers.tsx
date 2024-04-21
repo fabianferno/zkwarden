@@ -23,11 +23,11 @@ const config = getDefaultConfig({
   appName: "Zkwarden",
   projectId: process.env.NEXT_PUBLIC_PROJECT_ID || "",
   chains: [
-    mainnet,
-    optimism,
-    arbitrum,
-    sepolia,
-    optimismSepolia,
+    // mainnet,
+    // optimism,
+    // arbitrum,
+    // sepolia,
+    // optimismSepolia,
     arbitrumSepolia,
   ],
   ssr: true, // If your dApp uses server side rendering (SSR)

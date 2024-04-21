@@ -7,6 +7,8 @@ import React, { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useWriteContract } from "wagmi";
+import { ABI } from "@/lib/signABI";
 
 const libraries = ["places"]; // Include places library for better user experience
 
@@ -20,6 +22,7 @@ const mapContainerStyle = {
 };
 
 export default function Home() {
+  const { writeContract, error } = useWriteContract();
   const account = useAccount();
   const [map, setMap] = useState<google.maps.Map | null>(null);
   const [marker, setMarker] = useState({ lat: center.lat, lng: center.lng });
@@ -31,6 +34,32 @@ export default function Home() {
   };
   const onLoad = (mapInstance: google.maps.Map) => {
     setMap(mapInstance);
+  };
+
+  const handleCreation = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    const args = [
+      {
+        Latitude: marker.lat.toFixed(6),
+        Longitude: marker.lng.toFixed(6),
+        Proximity: 500,
+        Verified: true,
+      },
+    ];
+
+    writeContract({
+      abi: ABI,
+      address: "0x652b155B0036FfFF9d88408a4F5E11d6401D8b75",
+      functionName: "confirmLocation",
+      args: args,
+    });
+    if (error) {
+      console.error("Error creating profile: ", error);
+    }
+
+    console.log("Creating with args: ", args, account?.address);
   };
 
   return (
@@ -92,7 +121,7 @@ export default function Home() {
                                 <input
                                   type="text"
                                   disabled
-                                  defaultValue={marker.lat.toFixed(6)}
+                                  value={marker.lat.toFixed(6)}
                                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                                 />
                               </div>
@@ -106,7 +135,7 @@ export default function Home() {
                                 <input
                                   type="text"
                                   disabled
-                                  defaultValue={marker.lng.toFixed(6)}
+                                  value={marker.lng.toFixed(6)}
                                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                                 />
                               </div>
@@ -118,7 +147,7 @@ export default function Home() {
                               </label>
                               <div className="mt-2">
                                 <input
-                                  defaultValue={50}
+                                  defaultValue={500}
                                   type="number"
                                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-zinc-200"
                                 />
@@ -160,8 +189,9 @@ export default function Home() {
 
                       <div className="mt-2 flex items-center justify-end gap-x-6">
                         <button
-                          type="submit"
+                          // type="submit"
                           className="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
+                          onClick={handleCreation}
                         >
                           Create
                         </button>
